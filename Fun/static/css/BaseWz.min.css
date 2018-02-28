@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+/**
+ * BaseWz响应式后台，请遵守Apache2.0协议使用，未经允许，请勿盗用.
+ * @Statement: [ An Ordinary Person ]
+ * @Author: Wz < 270988107@qqcom} >
+ * @Copyright: Wz 2017 All rights reserved.
+ */
+
+.mdui-toolbar>a:hover {
+	color: #fff;
+}
+
+#div>img {
+	width: 100px;
+	height: 100px;
+}
+
+/*.layui-table tbody tr:hover {
+	background-color: #000;
+}*/
+
+.wz-top-10 {
+	margin-top: 10px;
+}
+
+.wz-top-20 {
+	margin-top: 20px;
+}
+
+.wz-top-30 {
+	margin-top: 30px;
+}
+
+.wz-top-40 {
+	margin-top: 40px;
+}
+
+.wz-bottom-10 {
+	margin-bottom: 10px;
+}
+
+.wz-bottom-20 {
+	margin-bottom: 20px;
+}
+
+.wz-bottom-30 {
+	margin-bottom: 30px;
+}
+
+.wz-bottom-30 {
+	margin-bottom: 30px;
+}
+
+.wz-left-10 {
+	margin-left: 10px;
+}
+
+.wz-left-20 {
+	margin-left: 20px;
+}
+
+.wz-left-30 {
+	margin-left: 30px;
+}
+
+.wz-left-40 {
+	margin-left: 40px;
+}
+
+.wz-right-10 {
+	margin-right: 10px;
+}
+
+.wz-right-20 {
+	margin-right: 20px;
+}
+
+.wz-right-30 {
+	margin-right: 30px;
+}
+
+.wz-right-40 {
+	margin-right: 40px;
+}
+
+.wz-main {
+	padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wz-width {
+	width: 20%;
+}
+
+.wz-theme-nav {
+	background-color: #18bc9c!important;
+	color: #fff;
+}
+
+.wz-nav-left {
+	margin-left: 185px;
+}
+
+.wz-nav-icons {
+	margin-top: -15px;
+	margin-left: 95px; 
+	font-size: 80px;
+}
+
+.wz-nav-user {
+	margin-top: -35px;
+}
+
+.wz-nav-chip {
+	background: #35af97;
+	margin-right: 10px;
+}
+
+.mdui-forum-edit-text {
+    margin-top: 5px;
+    width: 95%;
+    margin-bottom: 20px;
+    height: 325px;
+}
+
+.wz-config {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

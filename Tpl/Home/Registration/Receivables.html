@@ -1,0 +1,99 @@
+{include file="Common/header" /}
+
+<!-- 头部结束 -->
+
+<!-- 侧边栏开始 -->
+
+{include file="Common/sidebar" /}
+
+<!-- 侧边栏结束 -->
+
+<div class="mdui-container-fluid wz-top-20 wz-left-10">
+  <div class="wz-main">
+    <div class="mdui-card wz-bottom-20">
+    	<div class="wz-config" style="padding: 0 20px;">
+	<table class="layui-table">
+	  <colgroup>
+	    <col width="100">
+	    <col width="150">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	  </colgroup>
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>主图</th>
+	      <th>标题</th>
+	      <th>商品ID</th>
+	      <th>券ID</th>
+	      <th>支付金额截图</th>
+	      <th>买家支付金额	</th>
+	      <th>结算券后价</th>
+	      <th>服务费单价</th>
+	      <th>结算金额</th>
+	    </tr> 
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>{$ReceivablesDataInfo.id}</td>
+	      <td><img src="{$ReceivablesDataInfo.shopimg}" width="100" height="100"></td>
+	      <td><a href="{$ReceivablesDataInfo.url}" target="_blank">{$ReceivablesDataInfo.shoptitle}</a></td>
+	      <td>{$ReceivablesDataInfo.url|getQuerystr='id'}</td>
+	      <td>{$ReceivablesDataInfo.youhui|getQuerystr='activityId'}</td>
+	      <td>{if $ReceivablesDataInfo['zzjt']}<img src="{$ReceivablesDataInfo.zzjt}">{/if}</td>
+	      <td class="mjzf">{$ReceivablesDataInfo.mjzf}</td>
+	      <td>{$ReceivablesDataInfo.houjia}</td>
+	      <td>{$ReceivablesDataInfo.fwf}</td>
+	      <td>{php} $Calculation = $ReceivablesDataInfo['zfje'] / $ReceivablesDataInfo['houjia'] * $ReceivablesDataInfo['fwf']; echo sprintf("%.1f",$Calculation); {/php}</td>
+	    </tr>
+	  </tbody>
+	</table>
+	<form class="layui-form" action="" style="margin-top: 50px;">
+	    <div class="layui-form-item layui-form-text">
+	    <label class="layui-form-label">转账截图</label>
+	    <a class="layui-btn layui-btn-normal" id="cimg" style="float: left;" width="100"><i class="layui-icon">&#xe67c;</i>上传转账截图</a>
+	    <div class="layui-input-block" style="margin-left: 268px;">
+	  <input type="text" name="zzjt" value="{$ReceivablesDataInfo.zzjt}" id="thu" placeholder="请上传转账截图" class="layui-input" style="position: absolute;left: -17px;top: 0;width: 50%;">
+	  </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label"></label>
+	    <div class="layui-input-block">
+	     <img src="{$ReceivablesDataInfo.zzjt}">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">实收金额</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="ssje" required  lay-verify="required" placeholder="请输入商家实收金额" autocomplete="off" class="layui-input" style="width: 20%;" value="{$ReceivablesDataInfo.ssje}">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">备注</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="skbz" required  lay-verify="required" placeholder="请输入收款备注" autocomplete="off" class="layui-input" style="width: 20%;" value="{$ReceivablesDataInfo.skbz}">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <div class="layui-input-block">
+	    <input type="hidden" name="id" value="{$ReceivablesDataInfo.id}">
+	      <button class="layui-btn layui-btn-normal layui-btn-lg" lay-submit lay-filter="submit" data-url="{:url('collectionpreservation')}">保存</button>
+	    </div>
+	  </div>
+	</form>
+	</div>
+    </div>
+</div>
+</div>
+
+<!-- 底部开始 -->
+
+{include file="Common/footer" /}
+
+<!-- 底部结束 -->

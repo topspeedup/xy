@@ -1,0 +1,40 @@
+<!--
+/**
+ * @Statement: [ An Ordinary Person ]
+ * @Author: Wz < 270988107@qq.com >
+ * @Copyright: Wz 2017 All rights reserved.
+ */
+-->
+
+<!-- 头部开始 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>糯米淘客审核系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	{load href="/Fun/static/css/mdui.min.css" /}
+      	{load href="/Fun/static/css/BaseWz.min.css" /}
+      	{load href="/Fun/static/layui/css/layui.css" /}
+      {load href="/Fun/static/js/jquery.min.js" /}
+</head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-accent-blue">
+
+<!-- 导航开始 -->
+
+<div class="mdui-appbar mdui-appbar-fixed wz-theme-nav">
+  <div class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#drawer'}"><i class="mdui-icon material-icons">menu</i></button>
+    <a href="javascript:;" class="mdui-typo-headline mdui-ripple">糯米淘客审核系统</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <div class="mdui-chip wz-nav-chip">
+  <span class="mdui-chip-title wz-nav-user wz-user-left" style="">{:session('admin.user')}</span>
+</div>
+ <a href="{:url('index/login/logout')}" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">退出登录</a>
+  </div>
+</div>
+
+<!-- 导航结束 -->
+

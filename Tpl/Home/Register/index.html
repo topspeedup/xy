@@ -1,0 +1,79 @@
+<!--
+ 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用户注册 - 糯米淘客审核系统</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	{load href="/Fun/static/css/mdui.min.css" /}
+	{load href="/Fun/static/css/login.css" /}
+
+</head>
+<body>
+
+<!-- 注册开始 -->
+
+    <div class="login-container">
+    	{if $InfoReg['in'] == 1}
+	<h2>用户注册</h2>
+	<form class="layui-form">
+		<div class="login-input">
+			<input type="text" placeholder="用户名" name="user">
+		</div>
+		<div class="login-input">
+			<input type="email" placeholder="真实姓名" name="name">
+		</div>
+		<div class="login-input">
+			<input type="password" placeholder="密码" name="pass">
+		</div>
+		<div class="login-input">
+			<input type="password" placeholder="确认密码" name="ispass">
+		</div>
+		<button lay-submit="" lay-filter="register">注册</button>
+		<div style="position: relative; margin-top: 20px;">
+			<a href="{:url('/index/login')}" style="float: left;">已有账户，马上登录</a>
+		</div>
+	</form>
+	{else/}
+	<h2>用户注册已关闭</h2>
+	{/if}
+</div>
+
+<!-- 注册结束 -->
+
+<!-- 走马图开始 -->
+
+<div id="supersized"></div>
+
+<!-- 走马图结束 -->
+
+{load href="/Fun/static/js/jquery.min.js" /}
+{load href="/Fun/static/js/supersized.js" /}
+{load href="/Fun/static/js/supersized.3.2.7.min.js" /}
+{load href="/Fun/static/layui/layui.js" /}
+<script>  
+ layui.use('form',function(){
+  var form = layui.form;
+  var $ = layui.jquery;
+  form.on('submit(register)', function(data){
+    $.post("{:url('/index/register')}",data.field,function(data){
+      if(data.code == 1){
+        layer.msg(data.msg, {time: 3000}, function(){
+          location.href = "{:url('/index/login')}";
+        });
+      }else{
+        layer.msg(data.msg, {time: 2000});
+      }
+    });
+    return false;
+  });
+})
+</script>  
+</body>
+</html>

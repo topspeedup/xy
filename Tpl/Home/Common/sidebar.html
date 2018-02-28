@@ -1,0 +1,141 @@
+<div class="mdui-drawer mdui-shadow-10" id="drawer">
+  <ul class="mdui-list">
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('/')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+      <div class="mdui-list-item-content">系统首页</div>
+    </li>
+    {if $AdminQuery['statu'] == 4}
+    <li class="mdui-subheader">招商专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('attract/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe0ba;</i>
+      <div class="mdui-list-item-content">招商录入</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('shoplist/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85d;</i>
+      <div class="mdui-list-item-content">商品管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('registration/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+      <div class="mdui-list-item-content">收款登记</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('financial/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe337;</i>
+      <div class="mdui-list-item-content">收款核对</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('vendoruser/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe14f;</i>
+      <div class="mdui-list-item-content">卖家信息管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('recycle/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe16c;</i>
+      <div class="mdui-list-item-content">回收站</div>
+    </li>
+    <li class="mdui-subheader">上单专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('singleshop/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85d;</i>
+      <div class="mdui-list-item-content">商品管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('recycle/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe16c;</i>
+      <div class="mdui-list-item-content">回收站</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('statistics/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85c;</i>
+      <div class="mdui-list-item-content">绩效统计</div>
+    </li>
+    <li class="mdui-subheader">财务专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('receicheck/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+      <div class="mdui-list-item-content">收款核对</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('statistics/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85c;</i>
+      <div class="mdui-list-item-content">绩效统计</div>
+    </li>
+    <li class="mdui-subheader">管理员菜单</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('config/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
+      <div class="mdui-list-item-content">系统设置</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('user/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe853;</i>
+      <div class="mdui-list-item-content">用户管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('shopclass/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe06b;</i>
+      <div class="mdui-list-item-content">类目管理</div>
+    </li>
+
+   {else/}
+
+    {if $AdminQuery['statu'] == 1}
+    <li class="mdui-subheader">招商专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('attract/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe0ba;</i>
+      <div class="mdui-list-item-content">招商录入</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('shoplist/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85d;</i>
+      <div class="mdui-list-item-content">商品管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('registration/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+      <div class="mdui-list-item-content">收款登记</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('financial/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe337;</i>
+      <div class="mdui-list-item-content">收款核对</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('vendoruser/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe14f;</i>
+      <div class="mdui-list-item-content">卖家信息管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('recycle/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe16c;</i>
+      <div class="mdui-list-item-content">回收站</div>
+    </li>
+    {/if}
+    {if $AdminQuery['statu'] == 2}
+    <li class="mdui-subheader">上单专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('singleshop/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85d;</i>
+      <div class="mdui-list-item-content">商品管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('recycle/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe16c;</i>
+      <div class="mdui-list-item-content">回收站</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('statistics/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85c;</i>
+      <div class="mdui-list-item-content">绩效统计</div>
+    </li>
+    {/if}
+    {if $AdminQuery['statu'] == 3}
+    <li class="mdui-subheader">财务专员</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('receicheck/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+      <div class="mdui-list-item-content">收款核对</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('statistics/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe85c;</i>
+      <div class="mdui-list-item-content">绩效统计</div>
+    </li>
+    {/if}
+    {if $AdminQuery['statu'] == 4}
+    <li class="mdui-subheader">管理员菜单</li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('config/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
+      <div class="mdui-list-item-content">系统设置</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('user/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe853;</i>
+      <div class="mdui-list-item-content">用户管理</div>
+    </li>
+    <li class="mdui-list-item mdui-ripple" onclick="window.location.href='{:url('shopclass/index')}'">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe06b;</i>
+      <div class="mdui-list-item-content">类目管理</div>
+    </li>
+    {/if}
+     {/if}
+  </ul>
+</div>

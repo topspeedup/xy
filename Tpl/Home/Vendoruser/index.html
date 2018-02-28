@@ -1,0 +1,117 @@
+{include file="Common/header" /}
+
+<!-- 头部结束 -->
+
+<!-- 侧边栏开始 -->
+
+{include file="Common/sidebar" /}
+
+<!-- 侧边栏结束 -->
+
+<div class="mdui-container-fluid wz-top-20 wz-left-10">
+  <div class="wz-main">
+    <div class="mdui-card wz-bottom-20">
+    	<div class="wz-config" style="padding: 0 20px;">
+    	<button class="layui-btn layui-btn-normal"  mdui-dialog="{target: '#info'}"><i class="layui-icon">&#xe61f;</i>  添加店铺信息</button>
+	<table class="layui-table">
+	  <colgroup>
+	    <col width="150">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	  </colgroup>
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>店铺名称</th>
+	      <th>商品类目</th>
+	      <th>店铺QQ</th>
+	      <th>店铺电话/微信</th>
+	      <th>联系QQ</th>
+	      <th>客户等级</th>
+	      <th>备注</th>
+	      <th>操作</th>
+	    </tr> 
+	  </thead>
+	  <tbody>
+	  {volist name="ShopInfoList" id="vo"}
+	    <tr>
+	      <td>{$vo.id}</td>
+	      <td>{$vo.shopname}</td>
+	      <td>{$vo.shopclass}</td>
+	      <td>{$vo.shopqq}</td>
+	      <td>{$vo.weixin}</td>
+	      <td>{$vo.autqq}</td>
+	      <td class="dj">{if $vo['grade']}{$vo.grade}{else/}一般{/if}</td>
+	      <td class="info">{$vo.beizhu}</td>
+	      <td><a href="{:url('del',['id'=>$vo['id']])}" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger">删除</a></td>
+	    </tr>
+	  {/volist}
+	  </tbody>
+	</table>
+	</div>
+    </div>
+</div>
+</div>
+  <div class="mdui-dialog" id="info">
+    <div class="mdui-dialog-content">
+      <div class="mdui-dialog-title">添加店铺信息</div>
+      <form class="layui-form" action="" style="margin-left: -35px;">
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">商品链接</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="shopurl" required  lay-verify="required" placeholder="请输入商品链接" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">店铺名称</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="shopname" required  lay-verify="required" placeholder="请输入店铺名称" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">商品类目</label>
+	    <div class="layui-input-block">
+	      <select name="shopclass" lay-verify="required">
+	  	{volist name="ShopClassList" id="clas"}
+		<option value="{$clas.name}">{$clas.name}</option>
+		{/volist}
+	      </select>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">店铺QQ</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="shopqq" required  lay-verify="required" placeholder="请输入店铺QQ" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">联系QQ</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="autqq" required  lay-verify="required" placeholder="请输入联系QQ" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">电话/微信</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="weixin" required  lay-verify="required" placeholder="请输入电话或者微信" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <div class="layui-input-block">
+	      <button class="layui-btn" lay-submit lay-filter="submit" data-url="{:url('submitven')}">立即添加</button>
+	    </div>
+	  </div>
+      </form>
+    </div>
+  </div>
+<!-- 底部开始 -->
+
+{include file="Common/footer" /}
+
+<!-- 底部结束 -->

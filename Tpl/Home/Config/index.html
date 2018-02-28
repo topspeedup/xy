@@ -1,0 +1,48 @@
+{include file="Common/header" /}
+
+<!-- 头部结束 -->
+
+<!-- 侧边栏开始 -->
+
+{include file="Common/sidebar" /}
+
+<!-- 侧边栏结束 -->
+
+<div class="mdui-container-fluid wz-top-20 wz-left-10">
+  <div class="wz-main">
+    <div class="mdui-card wz-bottom-20">
+    	<div class="wz-config" style="padding: 0 20px;">
+	<form class="layui-form" action="" method="post">
+	  <div class="layui-form-item">
+	    <label class="layui-form-label" style="width: 90px;">管理密码修改</label>
+	    <div class="layui-input-block" style="margin-left: 120px;">
+	      <input type="text" name="pwd" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">关闭注册</label>
+	    <div class="layui-input-block">
+	    {if $regdata['in'] == 1}
+	    <button  class="layui-btn layui-btn-sm layui-btn-radius layui-btn-normal reg" data-id="1" data-url="{:url('reg')}">已开启注册</button>
+	    {else/}
+	   <button  class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger reg" data-id="1" data-url="{:url('reg')}">已关闭注册</button>
+	    {/if}
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <div class="layui-input-block">
+	    <input type="hidden" name="id" value="{:session('admin.id')}">
+	      <button class="layui-btn" type="submit" >立即提交</button>
+	    </div>
+	  </div>
+	</form>
+	</div>
+    </div>
+</div>
+</div>
+
+<!-- 底部开始 -->
+
+{include file="Common/footer" /}
+
+<!-- 底部结束 -->

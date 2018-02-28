@@ -1,0 +1,79 @@
+{include file="Common/header" /}
+
+<!-- 头部结束 -->
+
+<!-- 侧边栏开始 -->
+
+{include file="Common/sidebar" /}
+
+<!-- 侧边栏结束 -->
+
+<div class="mdui-container-fluid wz-top-20 wz-left-10">
+  <div class="wz-main">
+    <div class="mdui-card wz-bottom-20">
+    	<div class="wz-config" style="padding: 0 20px;">
+	<table class="layui-table">
+	  <colgroup>
+	    <col width="100">
+	    <col width="150">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	    <col width="200">
+	  </colgroup>
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>主图</th>
+	      <th>标题</th>
+	      <th>商品ID</th>
+	      <th>券ID</th>
+	      <th>转帐截图</th>
+	      <th>收款信息</th>
+	      <th>备注</th>
+	      <th>核对状态</th>
+	      <th>核对操作</th>
+	    </tr> 
+	  </thead>
+	  <tbody>
+	  {volist name="ShopUserList" id="vo"}
+	  {if $vo['hdstastu'] != 0}
+	    <tr>
+	      <td>{$vo.id}</td>
+	      <td><img src="{$vo.shopimg}" width="100" height="100"></td>
+	      <td><a href="{$vo.url}" target="_blank">{$vo.shoptitle}</a></td>
+	      <td>ID：<a href="{$vo.url}" style="color: red;" target="_blank">{$vo.url|getQuerystr='id'}</a></td>
+	      <td style="word-break:break-all;"><a href="{$vo.youhui}" style="color: red;" target="_blank">{$vo.youhui|getQuerystr='activityId'}</a></td>
+	      <td>{if $vo['zzjt']}<img src="{$vo.zzjt}">{/if}</td>
+	      	      <td>支付金额：<span style="font-weight: bold;">￥{$vo.zfje}</span><br>
+	      	 结算券后价：<span style="font-weight: bold;">￥{$vo.houjia}</span><br>
+	      	 服务费单价：<span style="font-weight: bold;">￥{$vo.fwf}</span><br>
+	      	 结算金额：<span style="font-weight: bold;word-break:break-all;">￥{php} $Calculation = $vo['zfje'] / $vo['houjia'] * $vo['fwf']; echo sprintf("%.1f",$Calculation); {/php}</span><br>
+	     </td>
+	      <td>{$vo.skbz}</td>
+	      <td>{if $vo['hdstastu'] == 3}<span style="color: #0db500">已核对</span>{/if}{if $vo['hdstastu'] == 2}<span style="color: red">需审核</span>{/if}{if $vo['hdstastu'] == 1}<span>未核对</span>{/if}</td>
+	      <td>
+	      	<div class="layui-btn-group">
+	      	<a href="{:url('examine',['id'=>$vo['id']])}"  class="layui-btn layui-btn-danger">需重核</a><br><br>
+	      	<a href="{:url('check',['id'=>$vo['id']])}"  class="layui-btn layui-btn-normal">已核对</a>
+		</div>
+	      </td>
+	    </tr>
+	    {/if}
+	    {/volist}
+	  </tbody>
+	</table>
+	</div>
+    </div>
+</div>
+</div>
+
+<!-- 底部开始 -->
+
+{include file="Common/footer" /}
+
+<!-- 底部结束 -->

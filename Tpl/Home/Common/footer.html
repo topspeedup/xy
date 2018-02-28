@@ -1,0 +1,393 @@
+{load href="/Fun/static/js/mdui.min.js" /}
+{load href="/Fun/static/layui/layui.js" /} 
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  laydate.render({
+    elem: '#time1'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+  laydate.render({
+    elem: '#time2'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+  laydate.render({
+    elem: '#time3'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+  laydate.render({
+    elem: '#time4'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+  laydate.render({
+    elem: '#time5'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+      laydate.render({
+    elem: '#time6'
+    ,theme: 'molv'
+    ,format: 'yyyy-MM-dd HH:mm:ss'
+  });
+});
+</script>
+<script type="text/javascript">
+$(function(){
+    $('.tdbj').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("notedatareception")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+$('.wz').click(function(){   
+  var id = $(this).attr('data-id');
+  var url = $(this).attr('data-url');
+$.ajax({    
+      type: 'POST',    
+      url: '{:url("notedatareception")}',    
+      data: "id="+id,
+      success: function(data)
+      {
+        layer.msg(data.msg, {time: 2000});
+      }
+    });      
+ }); 
+$('.reg').click(function(){   
+  var id = $(this).attr('data-id');
+  var url = $(this).attr('data-url');
+$.ajax({    
+      type: 'POST',    
+      url: url,    
+      data: "id="+id,
+      success: function(data)
+      {
+        layer.msg(data.msg, {time: 3000}, function(){
+          window.location.reload();
+        });
+      }
+    });      
+ }); 
+$('.skbz').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("notedatareception")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+$('.skbz').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("notedatareception")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+$('.info').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("shopinfobeizhu")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+}); 
+$('.dj').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("shopusergrade")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+$('.mjzf').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" class="layui-input" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("td:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                $.ajax({    
+                  type: 'POST',    
+                  url: '{:url("receivablesmjzf")}',    
+                  data: "thisid="+thisid+"&thisvalue="+thisvalue,
+                  success: function(data)
+                  {
+                    layer.msg(data.msg, {time: 2000});
+                  }
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });  
+</script>
+<script>
+  $("#d").click(function(){
+window.open(document.getElementById("input").value);
+});
+</script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+form.on('submit(attract)', function(data){
+    $.post("{:url('submissionaudit')}",data.field,function(data){
+      if(data.code == 1){
+        layer.msg(data.msg, {time: 3000}, function(){
+          location.href = '/index.html';
+        });
+      }else{
+        layer.msg(data.msg, {time: 2000});
+      }
+    });
+    return false;
+  });
+form.on('submit(submit)', function(data){
+  var url = $(this).attr('data-url');
+    $.post(url,data.field,function(data){
+      if(data.code == 1){
+        layer.msg(data.msg, {time: 3000}, function(){
+          window.location.reload();
+        });
+      }else{
+        layer.msg(data.msg, {time: 2000});
+      }
+    });
+    return false;
+  });
+form.on('submit(editsubmit)', function(data){
+    $.post("{:url('edit')}",data.field,function(data){
+      if(data.code == 1){
+        layer.msg(data.msg, {time: 3000}, function(){
+          location.href = '/index/shoplist/index';
+        });
+      }else{
+        layer.msg(data.msg, {time: 2000});
+      }
+    });
+    return false;
+  });
+$("#url").click(function(){
+        $.ajax({
+          type: "post",
+          url: "{:url('index/api/goods')}",
+          data: {link:$('input[name="url"]').val()},
+           success: function(data)
+           {  
+            var Json = JSON.parse(data);
+            if (Json.code == 0) {
+              layer.msg("商品已存在", {time: 2000});
+            }
+            var i= document.getElementById("input");
+            if (i.value=="")
+            {
+             layer.msg("请输入商品宝贝链接", {time: 2000});
+             return false;
+            }
+            // if (Json.data.commission_type_name == null) {
+            //  layer.msg("请输入正确的商品宝贝链接", {time: 2000});
+            //  return false;
+            //  }
+             var noon = document.getElementById("noon");
+             noon.style.display="block";
+             $('#title').val(''+ Json.data.goods_name +'');
+             $("#wenan").val(''+ Json.data.quan_guid_content +'');
+             $("#coupons").val(''+ Json.data.price_after_coupons +'');
+             $("#zs").val(''+ Json.data.quan_zong +'');
+             $("input[name='jjine']").val(''+ Json.data.price_coupons +'');
+             $("input[name='xiaoliang']").val(''+ Json.data.sales +'');
+             $("#bl").val(''+ Json.data.rate +'');
+             $('#img').val(''+ Json.data.pic +'');
+             var img = document.createElement("img");
+             img.src=''+Json.data.pic + '';
+             img.width="100";
+             img.height="100";
+             var div = document.getElementById('div');
+             div.appendChild(img);
+           }
+    });
+    });
+
+      $("#yhj").click(function(){
+        $.ajax({
+          type: "post",
+          url: "{:url('index/api/coupon')}",
+          data: {"youhui":$('input[name="youhui"]').val(),"link":$('input[name="url"]').val()},
+           success: function(data)
+           {  
+            var Json1 = JSON.parse(data);
+            var youhui= document.getElementById("youhui");
+            if (youhui.value=="")
+            {
+             layer.msg("请输入优惠券链接", {time: 2000});
+             return false;
+            }
+            // if (Json1.result.startFee == null) {
+            //  layer.msg("优惠券店铺名和宝贝店铺名不相符", {time: 2000});
+            //  return false;
+            // }
+            if (noon.style.display == "none") {
+             layer.msg("请先查询宝贝再查询优惠券", {time: 2000});
+             return false;
+             }
+             var yhjxs = document.getElementById("yhjxs");
+             yhjxs.style.display="block";
+             $('#discountPrice').val(''+ Json1.result.item.discountPrice +'');
+             $('#amount').val(''+ Json1.result.amount +'');
+             $('#fee').val(''+ Json1.result.startFee +'');
+             $('#shopname').val(''+ Json1.result.shopName +'');
+             $('#kstime').val(''+ Json1.result.effectiveStartTime +'');
+             $('#jstime').val(''+ Json1.result.effectiveEndTime +'');
+           }
+    });
+    });
+ $("#xud").click(function(){
+        $.ajax({
+          type: "post",
+          url: "{:url('index/api/coupon')}",
+          data: {"youhui":$('input[name="youhui"]').val(),"link":$('input[name="url"]').val()},
+           success: function(data)
+           {  
+            var Json1 = JSON.parse(data);
+            var youhui= document.getElementById("youhui");
+            if (youhui.value=="")
+            {
+             layer.msg("请输入优惠券链接", {time: 2000});
+             return false;
+            }
+            if (Json1.result.startFee == null) {
+             layer.msg("优惠券店铺名和宝贝店铺名不相符", {time: 2000});
+             return false;
+            }
+            if (noon.style.display == "none") {
+             layer.msg("请先查询宝贝再查询优惠券", {time: 2000});
+             return false;
+             }
+
+             $('#discountPrice').val(''+ Json1.result.item.discountPrice +'');
+             $('#amount').val(''+ Json1.result.amount +'');
+             $('#fee').val(''+ Json1.result.startFee +'');
+             $('#shopname').val(''+ Json1.result.shopName +'');
+             $('#kstime').val(''+ Json1.result.effectiveStartTime +'');
+             $('#jstime').val(''+ Json1.result.effectiveEndTime +'');
+           }
+    });
+    });
+});
+</script>
+<script>
+layui.use(['upload','jquery'],function(){
+var $ = layui.jquery;
+var upload = layui.upload;
+var uploadInst = upload.render({ 
+elem: '#cimg',
+dataType: 'json',
+url: '{:url('upload')}',
+ext: 'jpg|png|bmp|jpeg',
+before: function(obj){
+obj.preview(function(index, file, result){
+    $('#preview').attr('value',result);
+});
+},
+done:function(res){
+console.log(res);
+if (res.code == 0){
+      return layer.msg(res.message);
+}
+$('#thu').val(res.filepath);
+var img = document.createElement("img");
+img.src=''+res.filepath+ '';
+img.width="100";
+img.height="100";
+var div = document.getElementById('cdiv');
+div.appendChild(img);
+}
+});
+});
+</script>
+</body>
+</html>

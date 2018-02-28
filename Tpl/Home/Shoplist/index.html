@@ -1,0 +1,107 @@
+{include file="Common/header" /}
+
+<!-- 头部结束 -->
+
+<!-- 侧边栏开始 -->
+
+{include file="Common/sidebar" /}
+
+<!-- 侧边栏结束 -->
+
+<div class="mdui-container-fluid wz-top-20 wz-left-10">
+  <div class="wz-main">
+    <div class="mdui-card wz-bottom-20">
+    	<div class="wz-config" style="padding: 0 20px;">
+
+    	<!-- 商品管理列表开始 -->
+    	<form class="layui-form" action="" method="post">
+	<div class="layui-form-item">
+	  <div class="layui-inline">
+	    <div class="layui-form-mid" style="padding: 0px 0!important;margin-left: 0;"><input type="text" name="dp" placeholder="请输入店铺信息" autocomplete="off" class="layui-input"></div>
+	    <div class="layui-input-inline" style="width: 100px;">
+	      <button class="layui-btn layui-btn-normal" style="margin-left: -10px;">搜索店铺信息</button>
+	    </div>
+	    <div class="layui-input-inline" style="width: 450px;margin-left: 20px;">
+	      <input type="text" name="url" placeholder="链接形式为：http://item.taobao.com/item.htm?id=xxxxxxxxxxx" autocomplete="off" class="layui-input">
+	    </div>
+	    <div class="layui-form-mid" style="padding: 0px 0!important;margin-left: -10px;"><button class="layui-btn layui-btn-normal">搜索宝贝</button></div>
+	  </div>
+	</div>
+	</form>
+	<table class="layui-table">
+	  <colgroup>
+	    <col width="70">
+	    <col width="150">
+	    <col width="120">
+	    <col width="80">
+	    <col width="120">
+	    <col width="100">
+	    <col width="120">
+	    <col width="160">
+	    <col width="100">
+	    <col width="120">
+	    <col width="200">
+	    <col width="100">
+	  </colgroup>
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>商品</th>
+	      <th>商品信息</th>
+	      <th>服务费</th>
+	      <th>券后价/原价</th>
+	      <th>佣金</th>
+	      <th>优惠券</th>
+	      <th>文案</th>
+	      <th>时间</th>
+	       <th>商品备注</th>
+	      <th>上单状态</th>
+	      <th>操作</th>
+	    </tr> 
+	  </thead>
+	  <tbody>
+	  {volist name="ShopUserList" id="vo"}
+	    <tr>
+	      <td>{$vo.id}</td>
+	      <td><span style="color: #ff6e40;">ID:{$vo.url|getQuerystr='id'}</span><br><img src="{$vo.shopimg}" width="60" height="60" style="margin-left: 30px;"><br><span mdui-tooltip="{content: '{$vo.shoptitle}',position: 'top'}"><a href="{$vo.url}" target="_blank">{$vo.shoptitle}</a></span></td>
+	      <td ><img src="http://gtms01.alicdn.com/tps/i1/TB1aJazGXXXXXXzXXXXEDhGGXXX-32-32.png" width="18" height="18"> <label style="font-size: 16px;">店铺名称</label><br><span class="layui-badge" style="background-color: #18bc9c!important;width: 100%;">{$vo.shopname}</span></td>
+	      <td class="mdui-text-truncate" style="max-width: 100px;color: #00cc99;">￥{$vo.fwf} 元</td>
+	      <td style="color: red;">￥{$vo.houjia} / <span style=" text-decoration: line-through;font-weight: normal;color: #999;">￥{$vo.shoujia}</span><br><span style="color: #000;">月销量：{$vo.xiaoliang}</span></td>
+	      <td><span style="color: #ff4081;">{$vo.yongjin}%</span><br><span class="layui-badge" style="background-color: #18bc9c!important;">{$vo.huodong}</span></td>
+	      <td style="color: #00cc99;">￥{$vo.jjine} 元</td>
+	      <td mdui-tooltip="{content: '{$vo.wenan}',position: 'top'}">{$vo.wenan}</td>
+	      <td>开始时间：<br><span style="color: #ff6e40;">{$vo.kstime|strtotime|date="Y-m-d",###}</span><br>结束时间：<br><span style="color: #ff6e40;">{$vo.jstime|strtotime|date="Y-m-d",###}</span></td>
+	      <td class="tdbj">{$vo.beizhu}</td>
+	      <td>{if $vo['da']}<span class="layui-badge " style="background-color: #18bc9c!important;">大发布：{$vo.da} {if $vo['datime']== 0000-00-00}{else/}{$vo.datime}{/if}</span>{/if}
+	      	{if $vo['hao']}<span class="layui-badge" style="background-color: #18bc9c!important;">好发布：{$vo.hao}{if $vo['haotime']== 0000-00-00}{else/}{$vo.haotime}{/if}</span>{/if}
+	      	{if $vo['zhu']}<span class="layui-badge" style="background-color: #18bc9c!important;">猪发布：{$vo.zhu}{if $vo['zhutime']== 0000-00-00}{else/}{$vo.zhutime}{/if}</span>{/if}
+	      	{if $vo['qt']}<span class="layui-badge" style="background-color: #18bc9c!important;">其他发布：{$vo.qt}{if $vo['qttime'] == 0000-00-00}{else/}{$vo.qttime}{/if}</span>{/if}
+	      </td>
+	      <td><div class="layui-btn-group">
+	      	<a href="{:url('edit',['id'=>$vo['id']])}"  class="layui-btn layui-btn-sm layui-btn-normal"><i class="layui-icon">&#xe642;</i></a>
+	      	<a href="{:url('del',['id'=>$vo['id']])}"  class="layui-btn layui-btn-sm layui-btn-danger"><i class="layui-icon">&#xe640;</i></a>
+		</div>
+	    </td>
+	    </tr>
+	    {/volist}
+	  </tbody>
+	</table>
+
+	<!-- 商品管理列表结束 -->
+
+	<!-- 分页开始 -->
+
+	<div class="layui-box layui-laypage layui-laypage-default">
+	{$ShopUserList->render()}
+	</div>
+
+	<!-- 分页结束 -->
+
+	</div>
+    </div>
+
+<!-- 底部开始 -->
+
+{include file="Common/footer" /}
+
+<!-- 底部结束 -->
